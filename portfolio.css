@@ -1,0 +1,790 @@
+/* --- IMPORT ET BASES --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #111111;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- NAVIGATION --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 5%;
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: 900;
+    font-size: 1.2rem;
+    letter-spacing: -0.5px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #555;
+    margin-left: 25px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #2563EB;
+}
+
+/* --- SECTION ACCUEIL (HERO) --- */
+.hero-container {
+    display: flex;
+    min-height: calc(100vh - 80px);
+    padding: 0 5%;
+    align-items: center;
+}
+
+.hero-text {
+    flex: 1;
+    padding-right: 50px;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 4vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: #2563EB;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 35px;
+    max-width: 550px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 14px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background-color: #2563EB;
+    color: white;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    border: 2px solid #e5e5e5;
+    color: #111;
+}
+
+.btn-secondary:hover {
+    background-color: #111;
+    color: white;
+    border-color: #111;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-pic {
+    width: 350px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 20px 20px 0px rgba(37, 99, 235, 0.15);
+}
+
+/* --- SECTIONS GÉNÉRALES --- */
+.about-section {
+    padding: 100px 5%;
+    min-height: 100vh;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background-color: #2563EB;
+    bottom: -15px;
+    left: 0;
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+}
+
+/* --- CARTES (Design Blanc Épuré) --- */
+.about-card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+}
+
+.about-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+
+.about-card p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* --- LISTE INFOS --- */
+.info-list {
+    list-style: none;
+}
+
+.info-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.info-list i {
+    font-size: 1.2rem;
+    color: #2563EB;
+    margin-right: 20px;
+    width: 30px;
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.social-icon a {
+    width: 50px;
+    height: 50px;
+    background: #f0f2f5;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #555;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.social-icon a:hover {
+    background: #0077b5;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* --- SPÉCIFIQUE COMPÉTENCES (Alignement Parfait) --- */
+
+.skills-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+}
+
+.skill-card {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 1. Titre : Icône Bleue et Texte Noir */
+.skill-card h3 {
+    color: #111111; /* Force le texte du titre en noir */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.4rem;
+}
+
+.skill-card h3 i {
+    color: #2563EB; /* Garde seulement la petite icône en bleu */
+    font-size: 1.5rem;
+}
+
+/* 2. LE FIX D'ALIGNEMENT : On force la hauteur du texte */
+.skill-card p {
+    min-height: 60px; /* Force tous les textes à faire au moins 3 lignes */
+    margin-bottom: 20px;
+    /* Ainsi, les icônes en dessous commencent toutes à la même hauteur */
+}
+
+/* 3. La grille d'icônes */
+/* --- ALIGNEMENT DES BAS DE CARTES "À PROPOS" --- */
+
+/* On transforme les cartes en flex colonnes pour gérer la hauteur */
+.about-card.parcours,
+.about-card.infos {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Force les cartes à prendre toute la hauteur disponible */
+}
+
+/* On pousse les éléments du bas vers le fond */
+.sigat-logo,   /* Le logo SIGAT dans la carte parcours */
+.social-icon { /* Le logo LinkedIn dans la carte infos */
+    margin-top: auto; /* C'est la clé : ça pousse l'élément tout en bas */
+    padding-top: 20px; /* Un peu d'espace au-dessus pour respirer */
+}
+.software-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    /* On enlève le margin-top: auto pour que ça colle au texte aligné */
+    padding-top: 10px;
+    justify-items: center;
+}
+
+/* 4. LE CONTENEUR (Image + Texte) */
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    cursor: default;
+}
+
+/* 5. L'IMAGE = LE CARRÉ (Style App Icon) */
+.item img {
+    /* Dimensions du carré */
+    width: 90px;
+    height: 90px;
+    
+    /* Style du carré */
+    background-color: #f8f9fa; /* Gris neutre */
+    border: 1px solid #eee;
+    border-radius: 20px;       /* Angles arrondis */
+    
+    /* Logo dedans */
+    object-fit: contain;
+    padding: 20px; /* Marge interne pour que le logo respire */
+    
+    transition: all 0.3s ease;
+}
+
+/* 6. LE TEXTE (En dessous) */
+.item span {
+    font-size: 0.75rem; /* Un poil plus discret */
+    font-weight: 700;
+    color: #666;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 5px;
+    transition: color 0.3s ease;
+}
+
+/* 7. EFFET DE SURVOL */
+.item:hover img {
+    background-color: #ffffff;
+    border-color: #2563EB;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+}
+
+.item:hover span {
+    color: #2563EB;
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .skill-card p {
+        min-height: auto; /* Sur mobile on s'en fiche de l'alignement vertical */
+    }
+
+    .item img {
+        width: 80px;
+        height: 80px;
+        padding: 18px;
+    }
+}
+
+/* --- EXPÉRIENCES PROFESSIONNELLES --- */
+
+.parcours-grid {
+    display: grid;
+    /* Crée des colonnes qui s'adaptent à la largeur, min 350px de large */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.parcours-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Effet au survol de la carte */
+.parcours-card:hover {
+    transform: translateY(-5px);
+    border-color: #2563EB;
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.1);
+}
+
+/* En-tête : Logo à gauche, textes à droite */
+.exp-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+/* Le carré qui contient le logo */
+.exp-logo-box {
+    width: 70px;
+    height: 70px;
+    
+    /* C'est ici qu'on met le même gris que tes compétences */
+    background: #f8f9fa; 
+    
+    border: 1px solid #eee;
+    border-radius: 15px; /* Angles arrondis */
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.exp-logo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Le logo rentre sans être déformé */
+}
+
+/* Bloc Titre + Entreprise */
+.exp-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.exp-info h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #111;
+    margin: 0;
+}
+
+.exp-company {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #666;
+}
+
+/* Description du poste */
+.parcours-card p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1; /* Pousse les tags vers le bas pour aligner les cartes */
+}
+
+/* Conteneur des tags */
+.exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Style des tags (pillules bleues) */
+.tag {
+    display: inline-block;
+    background: #eff6ff; /* Fond bleu très clair */
+    color: #2563EB;      /* Texte bleu royal */
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Adaptation Mobile */
+@media (max-width: 768px) {
+    .parcours-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+    .exp-header {
+        flex-direction: column; /* Logo au-dessus du titre sur petit écran */
+        align-items: flex-start;
+    }
+}
+/* --- LOGO SIGAT (Style uniformisé LinkedIn) --- */
+.sigat-logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Le conteneur rond gris (le lien <a>) */
+.sigat-logo a {
+    width: 50px;  /* Taille identique au bouton LinkedIn */
+    height: 50px;
+    background: #f0f2f5; /* Le même gris clair */
+    border-radius: 50%;  /* Rond parfait */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    overflow: hidden; /* Empêche l'image de dépasser */
+    border: none; /* On enlève l'ancienne bordure */
+}
+
+/* L'image à l'intérieur (dézoomée) */
+.sigat-logo img {
+    width: 80%; /* L'image fait 70% de la taille du cercle */
+    height: 80%;
+    object-fit: contain; /* L'image entière est visible, pas coupée */
+    border-radius: 0; /* Plus besoin d'arrondir l'image elle-même */
+    box-shadow: none; /* On enlève l'ombre de l'image */
+}
+
+/* Effet au survol du cercle */
+.sigat-logo a:hover {
+    background: #2563EB; /* Devient bleu au survol */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+/* --- CARTOTHÈQUE : DÉROULEUR --- */
+.carto-slider-container {
+    width: 100%;
+    overflow-x: auto; /* Permet le défilement horizontal */
+    padding: 20px 0;
+    cursor: grab;
+}
+
+.carto-slider {
+    display: flex;
+    gap: 30px;
+    padding-bottom: 20px;
+}
+
+.carto-card {
+    min-width: 600px; /* Largeur de chaque carte comme sur ton exemple */
+    height: 400px;
+    background: #111;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.carto-card:hover {
+    transform: scale(1.02);
+}
+
+.carto-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Garde les proportions de tes cartes */
+    background-color: #f8f9fa;
+}
+
+.carto-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+/* Cache toutes les diapositives par défaut */
+.carto-slide {
+    display: none; /* Empêche l'empilement vertical */
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Affiche uniquement la diapositive qui a la classe .active */
+.carto-slide.active {
+    display: block; /* Une seule carte visible à la fois */
+}
+
+/* Animation optionnelle pour la fluidité */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* --- MODAL (Vue agrandie) --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    padding-top: 50px;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.95);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 85vh;
+}
+
+.close {
+    position: absolute;
+    top: 20px; right: 35px;
+    color: white; font-size: 40px; font-weight: bold; cursor: pointer;
+}
+
+/* --- CARTOTHÈQUE THÈME CLAIR --- */
+.slider-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.carto-slide {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.carto-slide.active {
+    display: block;
+}
+
+/* MODIFICATION POUR UNIFORMISER LA TAILLE DES IMAGES */
+.carto-image-box img {
+    width: 100%;
+    height: 450px; /* ON FIXE UNE HAUTEUR UNIQUE POUR TOUS */
+    object-fit: contain; /* MAGIQUE : L'image rentre dans la boîte sans être déformée */
+    background: #e9ecef; /* Un petit fond gris pour combler les vides autour des images portrait */
+    border-radius: 15px;
+    display: block;
+}
+
+.carto-image-box:hover {
+    transform: scale(1.01);
+}
+
+.carto-image-box img {
+    width: 100%;
+    border-radius: 15px;
+    display: block;
+}
+
+.carto-text {
+    margin-top: 25px;
+}
+
+.carto-text h3 {
+    font-size: 1.4rem;
+    color: #111;
+    font-weight: 800;
+}
+
+.carto-text p {
+    color: #666;
+    margin-top: 10px;
+}
+
+/* Navigation Boutons Bleus */
+.slider-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.nav-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: #2563EB; /* Ton bleu */
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-btn:hover {
+    background: #1d4ed8;
+    transform: scale(1.1);
+}
+
+.nav-dots {
+    display: flex;
+    gap: 12px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: #e5e7eb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #2563EB;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+/* Cache les slides par défaut */
+.carto-slide {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* Affiche uniquement la slide active */
+.carto-slide.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Style des points pour voir lequel est actif */
+.dot {
+    cursor: pointer;
+    background: #e5e7eb;
+}
+
+.dot.active {
+    background: #2563EB; /* Le bleu de ton thème */
+}
+
+/* --- BOUTON CONTACT NAV (En haut à droite) --- */
+.btn-contact-nav {
+    background-color: #2563EB;
+    color: white !important;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-left: 30px !important;
+}
+
+.btn-contact-nav:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+/* --- PIED DE PAGE --- */
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: #f8f9fa; /* Même gris léger que tes compétences */
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 50px;
+    border-top: 1px solid #eee;
+}
+
+/* --- EFFETS JS "PRO" --- */
+
+/* --- MENU ACTIF --- */
+
+/* CAS 1 : Les liens textes (À propos, Compétences...) -> Soulignement */
+.menu a.active-link:not(.btn-contact-nav) {
+    color: #2563EB;
+    position: relative;
+}
+
+.menu a.active-link:not(.btn-contact-nav)::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #2563EB;
+    animation: slideIn 0.3s ease;
+}
+
+/* CAS 2 : Le bouton Contact -> Grossissement (Pas de soulignement) */
+.menu a.btn-contact-nav.active-link {
+    transform: scale(1.1); /* Grossit légèrement */
+    background-color: #1d4ed8; /* Devient un peu plus foncé */
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.5); /* Ombre plus marquée */
+}
+
+@keyframes slideIn {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* 2. Préparation des éléments à animer en cascade */
+.item, .contact-item, .info-list li {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out;
+}
+
+/* La classe qui sera ajoutée par le JS pour les faire apparaître */
+.reveal-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
