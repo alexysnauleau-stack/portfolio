@@ -788,3 +788,114 @@ footer {
     opacity: 1 !important;
     transform: translateY(0) !important;
 }
+
+/* =========================================
+   VERSION MOBILE (SMARTPHONE)
+   ========================================= */
+@media (max-width: 768px) {
+
+    /* 1. NAVIGATION : On empile le logo et le menu */
+    nav {
+        flex-direction: column;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.98); /* Fond plus opaque */
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    /* Le menu devient une liste défilante horizontale ou centrée */
+    .menu {
+        display: flex;
+        flex-wrap: wrap; /* Permet aux liens de passer à la ligne */
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .menu a {
+        margin-left: 0; /* On enlève la marge gauche du PC */
+        font-size: 0.85rem; /* Texte un peu plus petit */
+        padding: 5px 10px;
+    }
+
+    /* Le bouton contact dans le menu */
+    .btn-contact-nav {
+        margin-left: 0 !important;
+        margin-top: 5px;
+    }
+
+    /* 2. L'ACCUEIL (HERO) : On inverse (Image en haut, texte en bas) */
+    .hero-container {
+        flex-direction: column-reverse; /* Image au-dessus */
+        text-align: center;
+        padding-top: 100px; /* Espace pour ne pas être caché par le menu */
+        justify-content: center;
+    }
+
+    .hero-text {
+        padding-right: 0;
+    }
+
+    h1 {
+        font-size: 2rem; /* Titre plus petit */
+    }
+
+    .profile-pic {
+        width: 200px; /* Image plus petite */
+        height: 200px;
+        margin-bottom: 30px; /* Espace sous l'image */
+    }
+
+    .buttons {
+        justify-content: center; /* Centre les boutons */
+        flex-direction: column; /* Boutons l'un sous l'autre sur mobile */
+        gap: 10px;
+    }
+
+    /* 3. LES GRILLES : Tout sur une seule colonne */
+    .about-container, 
+    .skills-grid, 
+    .software-grid-3, 
+    .parcours-grid {
+        grid-template-columns: 1fr !important; /* Force 1 colonne */
+        gap: 20px;
+    }
+
+    /* 4. CARTOTHÈQUE : On réduit la hauteur */
+    .carto-image-box img {
+        height: 250px; /* Hauteur adaptée au mobile (au lieu de 500px) */
+    }
+
+    /* Flèches de navigation plus petites */
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    /* 5. SECTIONS GÉNÉRALES */
+    .about-section {
+        padding: 60px 20px; /* Moins de marge sur les côtés */
+    }
+
+    .section-title {
+        font-size: 2rem;
+        text-align: center; /* Titres centrés */
+    }
+    
+    .section-title::after {
+        left: 50%;
+        transform: translateX(-50%); /* Ligne bleue centrée sous le titre */
+    }
+
+    /* 6. CONTACT */
+    .contact-wrapper {
+        padding: 0;
+    }
+    
+    .about-card {
+        padding: 25px; /* Moins de marge intérieure dans les cartes */
+    }
+}
