@@ -183,7 +183,7 @@ h1 {
 
 .info-list li {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Aligne le haut de l'icône avec le haut du texte */
     margin-bottom: 25px;
 }
 
@@ -192,12 +192,70 @@ h1 {
     color: #2563EB;
     margin-right: 20px;
     width: 30px;
+    text-align: center; /* CRUCIAL : Centre toutes les icônes dans leur colonne de 30px */
+    flex-shrink: 0; /* Empêche l'icône de rétrécir */
+    margin-top: 3px; /* Ajustement optique pour s'aligner avec le texte en gras */
+}
+
+/* --- LIEN RNCP --- */
+/* --- LIEN RNCP --- */
+.info-item-certification {
+    display: block;
+    margin-bottom: 25px;
+}
+
+.cert-box {
+    display: flex;
+    align-items: flex-start;
+    /* On retire le gap ici pour utiliser la même méthode que la liste au-dessus */
+    background: #f8f9fa;
+    border: 1.5px dashed #fbbf24;
+    border-radius: 14px;
+    padding: 14px 18px;
+    margin-left: -18px; /* Garde l'icône alignée avec celles du haut */
+}
+
+.cert-box i.fa-certificate, .cert-box i {
+    font-size: 1.2rem;
+    color: #2563EB;
+    flex-shrink: 0;
+    width: 30px;
+    text-align: center;
+    margin-right: 20px; /* Exactement le même espacement que .info-list i */
+    margin-top: 3px;
+}
+
+.cert-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+}
+
+.cert-content strong {
+    font-size: 1rem; /* Modifié : passe de 0.9rem à 1rem pour avoir la même taille que les autres */
+    font-weight: 700; /* Assure que le gras soit identique */
+    color: #111;
+}
+
+.rncp-link {
+    color: #2563EB;
+    text-decoration: none;
+    font-size: 0.9rem; /* Légèrement augmenté pour mieux s'équilibrer avec le nouveau titre */
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.rncp-link:hover {
+    text-decoration: underline;
+    color: #1d4ed8;
 }
 
 .social-icon {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* On remet au centre */
     margin-top: 30px;
+    /* On enlève le margin-left s'il y en avait un */
 }
 
 .social-icon a {
@@ -220,8 +278,7 @@ h1 {
     transform: translateY(-3px);
 }
 
-/* --- SPÉCIFIQUE COMPÉTENCES (Alignement Parfait) --- */
-
+/* --- SPÉCIFIQUE COMPÉTENCES --- */
 .skills-grid {
     grid-template-columns: repeat(3, 1fr) !important;
 }
@@ -231,9 +288,8 @@ h1 {
     flex-direction: column;
 }
 
-/* 1. Titre : Icône Bleue et Texte Noir */
 .skill-card h3 {
-    color: #111111; /* Force le texte du titre en noir */
+    color: #111111;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -241,44 +297,37 @@ h1 {
 }
 
 .skill-card h3 i {
-    color: #2563EB; /* Garde seulement la petite icône en bleu */
+    color: #2563EB;
     font-size: 1.5rem;
 }
 
-/* 2. LE FIX D'ALIGNEMENT : On force la hauteur du texte */
 .skill-card p {
-    min-height: 60px; /* Force tous les textes à faire au moins 3 lignes */
+    min-height: 60px;
     margin-bottom: 20px;
-    /* Ainsi, les icônes en dessous commencent toutes à la même hauteur */
 }
 
-/* 3. La grille d'icônes */
 /* --- ALIGNEMENT DES BAS DE CARTES "À PROPOS" --- */
-
-/* On transforme les cartes en flex colonnes pour gérer la hauteur */
-.about-card.parcours,
-.about-card.infos {
+.about-card {
     display: flex;
     flex-direction: column;
-    height: 100%; /* Force les cartes à prendre toute la hauteur disponible */
+    height: 100%; /* S'assure que toutes les cartes s'étirent à la même hauteur dans la grille */
 }
 
-/* On pousse les éléments du bas vers le fond */
-.sigat-logo,   /* Le logo SIGAT dans la carte parcours */
-.social-icon { /* Le logo LinkedIn dans la carte infos */
-    margin-top: auto; /* C'est la clé : ça pousse l'élément tout en bas */
-    padding-top: 20px; /* Un peu d'espace au-dessus pour respirer */
+.sigat-logo,
+.social-icon {
+    margin-top: auto !important; /* Le !important force l'élément à se coller tout en bas */
+    margin-bottom: 0 !important; /* Assure qu'aucune marge parasite ne le repousse vers le haut */
+    padding-top: 20px;
 }
+
 .software-grid-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    /* On enlève le margin-top: auto pour que ça colle au texte aligné */
     padding-top: 10px;
     justify-items: center;
 }
 
-/* 4. LE CONTENEUR (Image + Texte) */
 .item {
     display: flex;
     flex-direction: column;
@@ -286,29 +335,22 @@ h1 {
     gap: 8px;
     width: 100%;
     cursor: default;
+    position: relative;
 }
 
-/* 5. L'IMAGE = LE CARRÉ (Style App Icon) */
 .item img {
-    /* Dimensions du carré */
     width: 90px;
     height: 90px;
-    
-    /* Style du carré */
-    background-color: #f8f9fa; /* Gris neutre */
+    background-color: #f8f9fa;
     border: 1px solid #eee;
-    border-radius: 20px;       /* Angles arrondis */
-    
-    /* Logo dedans */
+    border-radius: 20px;
     object-fit: contain;
-    padding: 20px; /* Marge interne pour que le logo respire */
-    
+    padding: 20px;
     transition: all 0.3s ease;
 }
 
-/* 6. LE TEXTE (En dessous) */
 .item span {
-    font-size: 0.75rem; /* Un poil plus discret */
+    font-size: 0.75rem;
     font-weight: 700;
     color: #666;
     text-transform: uppercase;
@@ -317,10 +359,31 @@ h1 {
     transition: color 0.3s ease;
 }
 
-/* 7. EFFET DE SURVOL */
+/* Badge "En cours" */
+.badge-learning {
+    display: inline-block;
+    background: #fffbeb;
+    color: #d97706;
+    border: 1px solid #fde68a;
+    padding: 2px 8px;
+    border-radius: 50px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-top: 2px;
+}
+
+/* Icône spéciale sur les items "en cours" */
+.item-learning img {
+    border-style: dashed;
+    border-color: #fbbf24;
+}
+
 .item:hover img {
     background-color: #ffffff;
     border-color: #2563EB;
+    border-style: solid;
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
 }
@@ -336,7 +399,7 @@ h1 {
     }
     
     .skill-card p {
-        min-height: auto; /* Sur mobile on s'en fiche de l'alignement vertical */
+        min-height: auto;
     }
 
     .item img {
@@ -347,10 +410,8 @@ h1 {
 }
 
 /* --- EXPÉRIENCES PROFESSIONNELLES --- */
-
 .parcours-grid {
     display: grid;
-    /* Crée des colonnes qui s'adaptent à la largeur, min 350px de large */
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px;
     margin-top: 40px;
@@ -367,14 +428,12 @@ h1 {
     flex-direction: column;
 }
 
-/* Effet au survol de la carte */
 .parcours-card:hover {
     transform: translateY(-5px);
     border-color: #2563EB;
     box-shadow: 0 15px 40px rgba(37, 99, 235, 0.1);
 }
 
-/* En-tête : Logo à gauche, textes à droite */
 .exp-header {
     display: flex;
     align-items: center;
@@ -382,16 +441,12 @@ h1 {
     margin-bottom: 25px;
 }
 
-/* Le carré qui contient le logo */
 .exp-logo-box {
     width: 70px;
     height: 70px;
-    
-    /* C'est ici qu'on met le même gris que tes compétences */
-    background: #f8f9fa; 
-    
+    background: #f8f9fa;
     border: 1px solid #eee;
-    border-radius: 15px; /* Angles arrondis */
+    border-radius: 15px;
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -403,10 +458,9 @@ h1 {
 .exp-logo-box img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Le logo rentre sans être déformé */
+    object-fit: contain;
 }
 
-/* Bloc Titre + Entreprise */
 .exp-info {
     display: flex;
     flex-direction: column;
@@ -426,27 +480,24 @@ h1 {
     color: #666;
 }
 
-/* Description du poste */
 .parcours-card p {
     color: #555;
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 25px;
-    flex-grow: 1; /* Pousse les tags vers le bas pour aligner les cartes */
+    flex-grow: 1;
 }
 
-/* Conteneur des tags */
 .exp-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-/* Style des tags (pillules bleues) */
 .tag {
     display: inline-block;
-    background: #eff6ff; /* Fond bleu très clair */
-    color: #2563EB;      /* Texte bleu royal */
+    background: #eff6ff;
+    color: #2563EB;
     padding: 6px 14px;
     border-radius: 50px;
     font-size: 0.75rem;
@@ -455,57 +506,54 @@ h1 {
     letter-spacing: 0.5px;
 }
 
-/* Adaptation Mobile */
 @media (max-width: 768px) {
     .parcours-grid {
-        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+        grid-template-columns: 1fr;
     }
     .exp-header {
-        flex-direction: column; /* Logo au-dessus du titre sur petit écran */
+        flex-direction: column;
         align-items: flex-start;
     }
 }
-/* --- LOGO SIGAT (Style uniformisé LinkedIn) --- */
+
+/* --- LOGO SIGAT --- */
 .sigat-logo {
     display: flex;
     justify-content: center;
     margin-top: 30px;
 }
 
-/* Le conteneur rond gris (le lien <a>) */
 .sigat-logo a {
-    width: 50px;  /* Taille identique au bouton LinkedIn */
+    width: 50px;
     height: 50px;
-    background: #f0f2f5; /* Le même gris clair */
-    border-radius: 50%;  /* Rond parfait */
+    background: #f0f2f5;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 0.3s ease;
-    overflow: hidden; /* Empêche l'image de dépasser */
-    border: none; /* On enlève l'ancienne bordure */
+    overflow: hidden;
+    border: none;
 }
 
-/* L'image à l'intérieur (dézoomée) */
 .sigat-logo img {
-    width: 80%; /* L'image fait 70% de la taille du cercle */
+    width: 80%;
     height: 80%;
-    object-fit: contain; /* L'image entière est visible, pas coupée */
-    border-radius: 0; /* Plus besoin d'arrondir l'image elle-même */
-    box-shadow: none; /* On enlève l'ombre de l'image */
+    object-fit: contain;
+    border-radius: 0;
+    box-shadow: none;
 }
 
-/* Effet au survol du cercle */
 .sigat-logo a:hover {
-    background: #2563EB; /* Devient bleu au survol */
+    background: #2563EB;
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
 }
 
-/* --- CARTOTHÈQUE : DÉROULEUR --- */
+/* --- CARTOTHÈQUE --- */
 .carto-slider-container {
     width: 100%;
-    overflow-x: auto; /* Permet le défilement horizontal */
+    overflow-x: auto;
     padding: 20px 0;
     cursor: grab;
 }
@@ -517,7 +565,7 @@ h1 {
 }
 
 .carto-card {
-    min-width: 600px; /* Largeur de chaque carte comme sur ton exemple */
+    min-width: 600px;
     height: 400px;
     background: #111;
     border-radius: 15px;
@@ -535,7 +583,7 @@ h1 {
 .carto-card img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Garde les proportions de tes cartes */
+    object-fit: contain;
     background-color: #f8f9fa;
 }
 
@@ -549,20 +597,18 @@ h1 {
     text-align: center;
     font-size: 0.9rem;
 }
-/* Cache toutes les diapositives par défaut */
+
 .carto-slide {
-    display: none; /* Empêche l'empilement vertical */
+    display: none;
     width: 100%;
     text-align: center;
     animation: fadeIn 0.5s ease;
 }
 
-/* Affiche uniquement la diapositive qui a la classe .active */
 .carto-slide.active {
-    display: block; /* Une seule carte visible à la fois */
+    display: block;
 }
 
-/* Animation optionnelle pour la fluidité */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -598,33 +644,19 @@ h1 {
     text-align: center;
 }
 
-.carto-slide {
-    display: none;
-    animation: fadeIn 0.5s ease;
-}
-
-.carto-slide.active {
-    display: block;
-}
-
-/* MODIFICATION POUR UNIFORMISER LA TAILLE DES IMAGES */
 .carto-image-box img {
     width: 100%;
-    height: 450px; /* ON FIXE UNE HAUTEUR UNIQUE POUR TOUS */
-    object-fit: contain; /* MAGIQUE : L'image rentre dans la boîte sans être déformée */
-    background: #e9ecef; /* Un petit fond gris pour combler les vides autour des images portrait */
+    height: 450px;
+    object-fit: contain;
+    background: #e9ecef;
     border-radius: 15px;
     display: block;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-.carto-image-box:hover {
+.carto-image-box:hover img {
     transform: scale(1.01);
-}
-
-.carto-image-box img {
-    width: 100%;
-    border-radius: 15px;
-    display: block;
 }
 
 .carto-text {
@@ -642,7 +674,7 @@ h1 {
     margin-top: 10px;
 }
 
-/* Navigation Boutons Bleus */
+/* Navigation Boutons */
 .slider-nav {
     display: flex;
     justify-content: center;
@@ -656,7 +688,7 @@ h1 {
     height: 50px;
     border-radius: 50%;
     border: none;
-    background: #2563EB; /* Ton bleu */
+    background: #2563EB;
     color: white;
     font-size: 1.1rem;
     cursor: pointer;
@@ -682,40 +714,14 @@ h1 {
     background: #e5e7eb;
     border-radius: 50%;
     cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 .dot.active {
     background: #2563EB;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-/* Cache les slides par défaut */
-.carto-slide {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-/* Affiche uniquement la slide active */
-.carto-slide.active {
-    display: block;
-    opacity: 1;
-}
-
-/* Style des points pour voir lequel est actif */
-.dot {
-    cursor: pointer;
-    background: #e5e7eb;
-}
-
-.dot.active {
-    background: #2563EB; /* Le bleu de ton thème */
-}
-
-/* --- BOUTON CONTACT NAV (En haut à droite) --- */
+/* --- BOUTON CONTACT NAV --- */
 .btn-contact-nav {
     background-color: #2563EB;
     color: white !important;
@@ -736,7 +742,7 @@ h1 {
 footer {
     text-align: center;
     padding: 30px;
-    background-color: #f8f9fa; /* Même gris léger que tes compétences */
+    background-color: #f8f9fa;
     color: #666;
     font-size: 0.9rem;
     margin-top: 50px;
@@ -745,9 +751,7 @@ footer {
 
 /* --- EFFETS JS "PRO" --- */
 
-/* --- MENU ACTIF --- */
-
-/* CAS 1 : Les liens textes (À propos, Compétences...) -> Soulignement */
+/* MENU ACTIF */
 .menu a.active-link:not(.btn-contact-nav) {
     color: #2563EB;
     position: relative;
@@ -764,11 +768,10 @@ footer {
     animation: slideIn 0.3s ease;
 }
 
-/* CAS 2 : Le bouton Contact -> Grossissement (Pas de soulignement) */
 .menu a.btn-contact-nav.active-link {
-    transform: scale(1.1); /* Grossit légèrement */
-    background-color: #1d4ed8; /* Devient un peu plus foncé */
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.5); /* Ombre plus marquée */
+    transform: scale(1.1);
+    background-color: #1d4ed8;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.5);
 }
 
 @keyframes slideIn {
@@ -776,126 +779,139 @@ footer {
     to { width: 100%; }
 }
 
-/* 2. Préparation des éléments à animer en cascade */
+/* Préparation des éléments à animer en cascade */
 .item, .contact-item, .info-list li {
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.5s ease-out;
 }
 
-/* La classe qui sera ajoutée par le JS pour les faire apparaître */
 .reveal-visible {
     opacity: 1 !important;
     transform: translateY(0) !important;
 }
 
 /* =========================================
-   VERSION MOBILE (SMARTPHONE)
+   VERSION MOBILE
    ========================================= */
 @media (max-width: 768px) {
 
-    /* 1. NAVIGATION : On empile le logo et le menu */
     nav {
         flex-direction: column;
         padding: 15px;
-        background: rgba(255, 255, 255, 0.98); /* Fond plus opaque */
+        background: rgba(255, 255, 255, 0.98);
     }
 
     .logo {
         margin-bottom: 15px;
     }
 
-    /* Le menu devient une liste défilante horizontale ou centrée */
     .menu {
         display: flex;
-        flex-wrap: wrap; /* Permet aux liens de passer à la ligne */
+        flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
         width: 100%;
     }
 
     .menu a {
-        margin-left: 0; /* On enlève la marge gauche du PC */
-        font-size: 0.85rem; /* Texte un peu plus petit */
+        margin-left: 0;
+        font-size: 0.85rem;
         padding: 5px 10px;
     }
 
-    /* Le bouton contact dans le menu */
     .btn-contact-nav {
         margin-left: 0 !important;
         margin-top: 5px;
     }
 
-    /* 2. L'ACCUEIL (HERO) : On inverse (Image en haut, texte en bas) */
     .hero-container {
-        flex-direction: column-reverse; /* Image au-dessus */
+        flex-direction: column-reverse;
         text-align: center;
-        padding-top: 100px; /* Espace pour ne pas être caché par le menu */
+        padding-top: 100px;
         justify-content: center;
     }
 
     .hero-text {
-        padding-right: 0;
-    }
+    flex: 1;
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* LE SECRET EST ICI : Un espace parfait de 25px entre chaque élément */
+    align-items: flex-start; /* Empêche tes boutons de s'étirer sur toute la largeur */
+}
 
-    h1 {
-        font-size: 2rem; /* Titre plus petit */
-    }
+h1 {
+    font-size: clamp(2.5rem, 4vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 0; /* On retire la marge, "gap" s'en charge */
+}
 
+.highlight {
+    color: #2563EB;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 0; /* On retire la marge, "gap" s'en charge */
+    max-width: 550px;
+}
+
+/* On s'assure que le gras utilise bien la police importée (Inter 600 ou 900) */
+.hero-text p strong {
+    font-weight: 600; 
+}
     .profile-pic {
-        width: 200px; /* Image plus petite */
+        width: 200px;
         height: 200px;
-        margin-bottom: 30px; /* Espace sous l'image */
+        margin-bottom: 30px;
     }
 
     .buttons {
-        justify-content: center; /* Centre les boutons */
-        flex-direction: column; /* Boutons l'un sous l'autre sur mobile */
+        justify-content: center;
+        flex-direction: column;
         gap: 10px;
     }
 
-    /* 3. LES GRILLES : Tout sur une seule colonne */
     .about-container, 
     .skills-grid, 
     .software-grid-3, 
     .parcours-grid {
-        grid-template-columns: 1fr !important; /* Force 1 colonne */
+        grid-template-columns: 1fr !important;
         gap: 20px;
     }
 
-    /* 4. CARTOTHÈQUE : On réduit la hauteur */
     .carto-image-box img {
-        height: 250px; /* Hauteur adaptée au mobile (au lieu de 500px) */
+        height: 250px;
     }
 
-    /* Flèches de navigation plus petites */
     .nav-btn {
         width: 40px;
         height: 40px;
         font-size: 1rem;
     }
 
-    /* 5. SECTIONS GÉNÉRALES */
     .about-section {
-        padding: 60px 20px; /* Moins de marge sur les côtés */
+        padding: 60px 20px;
     }
 
     .section-title {
         font-size: 2rem;
-        text-align: center; /* Titres centrés */
+        text-align: center;
     }
     
     .section-title::after {
         left: 50%;
-        transform: translateX(-50%); /* Ligne bleue centrée sous le titre */
+        transform: translateX(-50%);
     }
 
-    /* 6. CONTACT */
     .contact-wrapper {
         padding: 0;
     }
     
     .about-card {
-        padding: 25px; /* Moins de marge intérieure dans les cartes */
+        padding: 25px;
     }
 }
