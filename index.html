@@ -16,8 +16,7 @@
             <a href="#competences">Compétences</a>
             <a href="#parcours">Parcours</a>
             <a href="#cartotheque">Cartothèque</a>
-            <a href="#contact" class="btn-contact-nav">Contact</a> </div>
-        </div>
+            <a href="#contact" class="btn-contact-nav">Contact</a>
         </div>
     </nav>
 
@@ -25,13 +24,14 @@
         <div class="hero-text">
             <h1>Bienvenue dans mon <br> Portfolio ! Je suis <br> <span class="highlight">Alexys Nauleau</span>.</h1>
             <p>Étudiant en Master SIGAT (Système d'Information Géographique et Analyse des Territoires) à l'Université de Rennes 2.</p>
+            <p>À la recherche d'un stage de fin d'étude pour <strong class="highlight">mai 2027</strong>.</p>
             <div class="buttons">
                 <a href="#cartotheque" class="btn-primary">Voir ma cartothèque</a>
                 <a href="#contact" class="btn-secondary">Me contacter</a>
             </div>
         </div>
         <div class="hero-image">
-            <img src="./image/moi.png" alt="Photo de Alexys Nauleau" class="profile-pic">
+            <img src="./image/moi.jpeg" alt="Photo de Alexys Nauleau" class="profile-pic">
         </div>
     </main>
 
@@ -54,7 +54,19 @@
                 <ul class="info-list">
                     <li><i class="fa-solid fa-location-dot"></i><span><strong>Localisation</strong> <br> Rennes, France</span></li>
                     <li><i class="fa-solid fa-envelope"></i><span><strong>Email</strong> <br> alexysnauleau@gmail.com</span></li>
-                    <li><i class="fa-solid fa-graduation-cap"></i><span><strong>Formation</strong> <br>Master 1 SIGAT</span></li>
+                    <li><i class="fa-solid fa-graduation-cap"></i><span><strong>Formation</strong> <br>Master 2 SIGAT</span></li>
+                    <li class="info-item-certification">
+    <div class="cert-box">
+        <i class="fa-solid fa-certificate"></i>
+        <div class="cert-content">
+            <strong>Certification</strong>
+            <a href="https://www.francecompetences.fr/recherche/rncp/40982/#anchor8" target="_blank" class="rncp-link">
+                Fiche RNCP n°40982 <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.65rem;"></i>
+            </a>
+        </div>
+        <span class="badge-learning">En cours</span>
+    </div>
+</li>
                 </ul>
                 <div class="social-icon">
                     <a href="https://www.linkedin.com/in/alexys-nauleau-1073b7335/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
@@ -77,12 +89,24 @@
                         <span>QGIS</span>
                     </div>
                     <div class="item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="PostgreSQL">
-                        <span>PostgreSQL</span>
-                    </div>
-                    <div class="item">
                         <img src="https://eo4society.esa.int/wp-content/uploads/2018/11/SNAP_icon-400x400.jpg" alt="SNAP">
                         <span>SNAP</span>
+                    </div>
+                    <div class="item item-learning">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/ArcGIS_logo.png" alt="ArcGIS">
+                        <span>ArcGIS</span>
+                        <span class="badge-learning">En cours</span>
+                    </div>
+                    <div class="item item-learning">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="PostGIS">
+                        <span>PostGIS</span>
+                        <span class="badge-learning">En cours</span>
+                    </div>
+                    <div class="item item-learning">
+                        <img src="./image/fme.png" alt="FME">
+
+                        <span>FME</span>
+                        <span class="badge-learning">En cours</span>
                     </div>
                 </div>
             </div>
@@ -125,8 +149,13 @@
                         <span>SQL</span>
                     </div>
                     <div class="item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="IA">
+                        <img src="./image/claude.svg" alt="IA">
                         <span>IA / LLM</span>
+                    </div>
+                    <div class="item item-learning">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python">
+                        <span>Python</span>
+                        <span class="badge-learning">En cours</span>
                     </div>
                 </div>
             </div>
@@ -134,11 +163,12 @@
         </div>
     </section>
 
-    <section id="parcours" class="about-section"> <h2 class="section-title">Parcours</h2>
+    <section id="parcours" class="about-section">
+        <h2 class="section-title">Parcours</h2>
         
         <div class="parcours-grid">
             
-             <div class="parcours-card">
+            <div class="parcours-card">
                 <div class="exp-header">
                     <div class="exp-logo-box">
                         <img src="https://upload.wikimedia.org/wikipedia/fr/2/23/Logo_univ-rennes2-2016.svg" alt="Logo Rennes 2">
@@ -155,6 +185,7 @@
                     <span class="tag">Tutorat</span>
                 </div>
             </div>
+
             <div class="parcours-card">
                 <div class="exp-header">
                     <div class="exp-logo-box">
@@ -162,7 +193,7 @@
                     </div>
                     <div class="exp-info">
                         <h3>Technicien / Conseiller ventes</h3>
-                        <span class="exp-company">Irripiscine • Actuel </span>
+                        <span class="exp-company">Irripiscine • Actuel</span>
                     </div>
                 </div>
                 <p>Conseil technique auprès des clients sur l'entretien et les équipements de piscine. Gestion des stocks, diagnostic de pannes et vente de solutions adaptées.</p>
@@ -176,7 +207,7 @@
             <div class="parcours-card">
                 <div class="exp-header">
                     <div class="exp-logo-box">
-                        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/e/e9/Logo_Stade_Rennais_FC.svg/1200px-Logo_Stade_Rennais_FC.svg.png" alt="Logo Stade Rennais">
+                        <img src=https://upload.wikimedia.org/wikipedia/fr/e/e9/Logo_Stade_Rennais_FC.svg alt="Logo Stade Rennais">
                     </div>
                     <div class="exp-info">
                         <h3>Agent d'accueil VIP</h3>
@@ -208,7 +239,6 @@
                     <span class="tag">Collectivité</span>
                 </div>
             </div>
-           
 
             <div class="parcours-card">
                 <div class="exp-header">
@@ -249,11 +279,21 @@
         </div>
     </section>
 
-<section id="cartotheque" class="about-section">
+    <section id="cartotheque" class="about-section">
         <h2 class="section-title">Cartothèque</h2>
         <div class="slider-wrapper">
             <div class="slider-container">
-                
+
+                <div class="carto-slide">
+                    <div class="carto-image-box" onclick="openFullView('./image/ventil-1.png')">
+                        <img src="./image/ventil-1.png" alt="Zoom sur l'habitat angevin">
+                    </div>
+                    <div class="carto-text">
+                        <h3>Zoom sur l'habitat angevin</h3>
+                        <p>Désagrégation de la population par IRIS à l'échelle des bâtiments.</p>
+                    </div>
+                </div>
+
                 <div class="carto-slide active">
                     <div class="carto-image-box" onclick="openFullView('./image/FLUX.png')">
                         <img src="./image/FLUX.png" alt="Carte Flux">
@@ -265,18 +305,18 @@
                 </div>
 
                 <div class="carto-slide">
-                    <div class="carto-image-box" onclick="openFullView('./image/carte3.png')">
-                        <img src="./image/carte3.png" alt="Poster Maladies vectorielles">
+                    <div class="carto-image-box" onclick="openFullView('./image/Rplot01.png')">
+                        <img src="./image/Rplot01.png" alt="Interpolation spatiale à Bogota">
                     </div>
                     <div class="carto-text">
-                        <h3>Vote Le Pen 2022 : quand le salaire médian fait la différence</h3>
-                        <p>Carte électorale second tour 2022, nombre de vote pour Marine Le Pen en fonction du salaire médian</p>
+                        <h3>Richesse & densité à Bogotá réalisé avec R</h3>
+                        <p>Carte par interpolation spatiale - corrélation entre le niveau de richesse et la densité de population.</p>
                     </div>
                 </div>
 
                 <div class="carto-slide">
                     <div class="carto-image-box" onclick="openFullView('./image/POSTER.png')">
-                        <img src="./image/POSTER.png" alt="">
+                        <img src="./image/POSTER.png" alt="De la Piqûre à la Carte">
                     </div>
                     <div class="carto-text">
                         <h3>De la Piqûre à la Carte</h3>
@@ -287,13 +327,16 @@
             </div>
             
             <div class="slider-nav">
-    <button class="nav-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
-    
-    <div class="nav-dots">
-        <span class="dot active"></span> <span class="dot"></span>        <span class="dot"></span>        </div>
+                <button class="nav-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
+                
+                <div class="nav-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
 
-    <button class="nav-btn next"><i class="fa-solid fa-chevron-right"></i></button>
-            </div>
+                <button class="nav-btn next"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
         </div>
     </section>
@@ -303,7 +346,7 @@
         <img class="modal-content" id="imgFull">
     </div>
 
-  <section id="contact" class="about-section">
+    <section id="contact" class="about-section">
         <h2 class="section-title">Contact</h2>
         
         <div class="contact-wrapper" style="display: flex; justify-content: center;">
@@ -332,7 +375,7 @@
                     </li>
                     <li>
                         <i class="fa-solid fa-graduation-cap"></i>
-                        <span><strong>Formation</strong> <br> Master 1 SIGAT</span>
+                        <span><strong>Formation</strong> <br> Master 2 SIGAT</span>
                     </li>
                 </ul>
 
@@ -351,3 +394,5 @@
     </footer>
 
     <script src="./portfolio.js"></script>
+</body>
+</html>
